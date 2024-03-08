@@ -1,8 +1,9 @@
 import processing.core.PApplet;
 import java.util.Random;
 /**
-* A program that draws a house, a sun, grass, and a sky to the screen.
+* A program that draws a house in a random location, a sun, grass, and a sky to the screen.
 * Optomizes it so when window is resized, the image is not distorted
+* Changes background colour based on where it is on the screen
 * @author: Joel Menezes
 */
 public class Sketch extends PApplet {
@@ -24,14 +25,14 @@ public class Sketch extends PApplet {
     // Make Window Resizeable
     surface.setResizable(true);
 
-    // Generate a new number
+    // Generate a new number & Updating global variables
     Random myRandom = new Random();
-    intHeight = myRandom.nextInt((height/5)+1);
-    intWidth = myRandom.nextInt((width/5)+1);
+    intHeight = myRandom.nextInt((height/5) + 1);
+    intWidth = myRandom.nextInt((width/5) + 1);
 
     // If Odd, Show on right side, if Even have it on left 
     if (intHeight % 2 == 1){
-      intHeight = intHeight * - 1;
+      intHeight = intHeight * -1;
     }
     if (intWidth % 2 == 1){
       intWidth = intWidth * -1;
@@ -83,4 +84,4 @@ public class Sketch extends PApplet {
     text(intMinutes, Math.round(width/4), Math.round(height/(800/225))); // Minutes
              
   }  
-}
+} 
